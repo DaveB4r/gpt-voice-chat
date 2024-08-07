@@ -1,0 +1,181 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@600&display=swap");
+$primary-color: #a01c1c;
+$secondary-color: #f7f7f7;
+$dark-color: #081041;
+$mono: "Roboto Mono", monospace;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $mono;
+  color: $dark-color;
+}
+body {
+  font-size: 20px;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+.sign-div {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .sign-logo {
+    margin: 10px;
+    img {
+      height: 100px;
+    }
+  }
+
+  .sign-form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    input {
+      min-width: 300px;
+      height: 30px;
+      border-radius: 5px;
+      border: none;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      outline: none;
+    }
+    input::placeholder {
+      color: $dark-color;
+    }
+    button {
+      text-transform: uppercase;
+      font-weight: 900;
+      color: $secondary-color;
+      margin-top: 10px;
+      height: 35px;
+      padding: 10px;
+      background-color: $primary-color;
+      border: none;
+      border-radius: 5px;
+    }
+  }
+}
+main {
+  .chat-main {
+    display: flex;
+    .users-panel {
+      display: flex;
+      position: relative;
+      flex-direction: column;
+      background: $primary-color;
+      height: 100vh;
+      padding: 10px;
+      h2 {
+        color: $secondary-color;
+        text-shadow: 1px 1px 1px $dark-color;
+        font-size: 20px;
+      }
+      ul > li {
+        list-style: none;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        margin: 10px;
+        img {
+          width: 50px;
+          border-radius: 50%;
+          margin-right: 10px;
+          border: 3px solid $secondary-color;
+        }
+        span {
+          font-size: 15px;
+          color: $secondary-color;
+        }
+      }
+      button {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 35px;
+        width: 100%;
+        cursor: pointer;
+      }
+    }
+    .messages-container {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: end;
+      align-items: start;
+      form {
+        width: 100%;
+        display: flex;
+        input {
+          height: 35px;
+          width: 90%;
+          border: none;
+          border-top: 1px solid #c7c7c7;
+          border-right: 1px solid #c7c7c7;
+          outline: none;
+        }
+        button {
+          width: 5%;
+          height: 35px;
+          background: none;
+          border-radius: 20px;
+          cursor: pointer;
+          border: none;
+          text-transform: uppercase;
+          color: $secondary-color;
+          font-weight: 700;
+          font-size: 30px;
+          margin-left: 3px;
+        }
+        
+      }
+      ul {
+        width: 80%;
+        height: calc(100vh - 35px);
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        li {
+          height: auto;
+          list-style: none;
+          margin: 10px;
+          box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+          width: 50%;
+          border-radius: 5px;
+          padding: 10px;
+          font-size: 15px;
+          span {
+            float: right;
+            font-size: 10px;
+            color: $dark-color;
+          }
+          small {
+            display: block;
+            width: 100%;
+            text-align: end;
+            font-size: 10px;
+            visibility: hidden;
+          }
+          &:hover {
+            small {
+              visibility: visible;
+            }
+          }
+        }
+        li.sended {
+          align-self: flex-end;
+          background-color: $primary-color;
+        }
+        li.sended > p , li.sended span, li.sended small {
+          color: $secondary-color;
+        }
+      }
+    }
+  }
+}
