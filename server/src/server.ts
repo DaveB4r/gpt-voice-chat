@@ -19,7 +19,8 @@ const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
     origin: [
-      "http://127.0.0.1:5173", // add all the origins to consume the services
+      "http://127.0.0.1:5173",
+      "exp://192.168.1.8:8081",
     ],
   },
 });
